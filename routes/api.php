@@ -7,4 +7,4 @@ Route::get('products', 'ProductController@getAll');
 Route::post('products', 'ProductController@add');
 Route::put('products/{id}', 'ProductController@edit');
 Route::delete('products/{id}', 'ProductController@delete');
-Route::post('products', 'ProductController@filter');
+Route::post('products/filter', 'ProductController@filter');
