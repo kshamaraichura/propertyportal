@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react'
 import axios from 'axios'
 import { Button, ButtonGroup, Card, Col, Container, Row } from 'react-bootstrap'
 import Product from './Product'
+import FilterBar from './FilterBar'
 
 class Home extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class Home extends Component {
         this.refreshData = this.refreshData.bind(this)
         this.setAdmin = this.setAdmin.bind(this)
         this.setNew = this.setNew.bind(this)
+        this.handleFilter = this.handleFilter.bind(this)
     }
 
     componentDidMount() {
@@ -41,6 +43,14 @@ class Home extends Component {
         })
     }
 
+    handleFilter(price, bedrooms, bathrooms) {
+        axios.post('/api/products/filter', { price, bedrooms, bathrooms }).then(response => {
+            this.setState({
+                products: response.data
+            })
+        })
+    }
+
     render() {
         const { isAdmin, products, isNew } = this.state
 
@@ -61,6 +71,7 @@ class Home extends Component {
                                     </ButtonGroup>
                                 </Card.Header>
                                 <Card.Body>
+                                    <FilterBar handleFilter={this.handleFilter} />
                                     <Container fluid>
                                         {isNew && <Product
                                             isAdmin={isAdmin}

@@ -85021,6 +85021,127 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/FilterBar.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/FilterBar.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var priceRange = {
+  0: 'Select',
+  1: '< 100K',
+  2: '100K - 300K',
+  3: '> 300K'
+};
+var bedroomRange = {
+  0: 'Select',
+  1: '1',
+  2: '2',
+  3: '> 2'
+};
+var bathroomRange = {
+  0: 'Select',
+  1: '1',
+  2: '2',
+  3: '> 2'
+};
+/* harmony default export */ __webpack_exports__["default"] = (function (props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      price = _useState2[0],
+      setPrice = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      bedroom = _useState4[0],
+      setBedroom = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState6 = _slicedToArray(_useState5, 2),
+      bathroom = _useState6[0],
+      setBathroom = _useState6[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Card"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Card"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    lg: 4,
+    md: 4
+  }, "Price:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+    as: "select",
+    name: "price",
+    value: price,
+    onChange: function onChange(e) {
+      return setPrice(e.target.value);
+    }
+  }, Object.entries(priceRange).map(function (p) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: p[0],
+      value: p[0]
+    }, p[1]);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    lg: 4,
+    md: 4
+  }, "Bedroom:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+    as: "select",
+    name: "bedroom",
+    value: bedroom,
+    onChange: function onChange(e) {
+      return setBedroom(e.target.value);
+    }
+  }, Object.entries(bedroomRange).map(function (p) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: p[0],
+      value: p[0]
+    }, p[1]);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    lg: 4,
+    md: 4
+  }, "Bathroom:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+    as: "select",
+    name: "bathroom",
+    value: bathroom,
+    onChange: function onChange(e) {
+      return setBathroom(e.target.value);
+    }
+  }, Object.entries(bathroomRange).map(function (p) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: p[0],
+      value: p[0]
+    }, p[1]);
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    style: {
+      paddingTop: '5px'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    className: "float-right"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    className: "float-right",
+    onClick: function onClick() {
+      return props.handleFilter(price, bedroom, bathroom);
+    }
+  }, "Filter")))));
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/Header.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/Header.js ***!
@@ -85063,6 +85184,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
 /* harmony import */ var _Product__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product */ "./resources/js/components/Product.js");
+/* harmony import */ var _FilterBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FilterBar */ "./resources/js/components/FilterBar.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -85090,6 +85212,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Home = /*#__PURE__*/function (_Component) {
   _inherits(Home, _Component);
 
@@ -85109,6 +85232,7 @@ var Home = /*#__PURE__*/function (_Component) {
     _this.refreshData = _this.refreshData.bind(_assertThisInitialized(_this));
     _this.setAdmin = _this.setAdmin.bind(_assertThisInitialized(_this));
     _this.setNew = _this.setNew.bind(_assertThisInitialized(_this));
+    _this.handleFilter = _this.handleFilter.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -85144,9 +85268,24 @@ var Home = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "handleFilter",
+    value: function handleFilter(price, bedrooms, bathrooms) {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/products/filter', {
+        price: price,
+        bedrooms: bedrooms,
+        bathrooms: bathrooms
+      }).then(function (response) {
+        _this3.setState({
+          products: response.data
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var _this$state = this.state,
           isAdmin = _this$state.isAdmin,
@@ -85158,18 +85297,20 @@ var Home = /*#__PURE__*/function (_Component) {
         className: "float-right"
       }, isAdmin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
         onClick: function onClick() {
-          return _this3.setNew(true);
+          return _this4.setNew(true);
         }
       }, "Add new property"), !isAdmin ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
         onClick: function onClick() {
-          return _this3.setAdmin(true);
+          return _this4.setAdmin(true);
         }
       }, "Admin") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
         variant: "danger",
         onClick: function onClick() {
-          return _this3.setAdmin(false);
+          return _this4.setAdmin(false);
         }
-      }, "Logout"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+      }, "Logout"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FilterBar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        handleFilter: this.handleFilter
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         fluid: true
       }, isNew && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Product__WEBPACK_IMPORTED_MODULE_3__["default"], {
         isAdmin: isAdmin,
@@ -85180,7 +85321,7 @@ var Home = /*#__PURE__*/function (_Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Product__WEBPACK_IMPORTED_MODULE_3__["default"], {
           key: product.id,
           product: product,
-          refreshData: _this3.refreshData
+          refreshData: _this4.refreshData
         });
       }))))))));
     }
