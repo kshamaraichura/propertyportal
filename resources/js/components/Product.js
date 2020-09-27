@@ -12,7 +12,7 @@ const defaultProduct = {
 }
 
 export default (props) => {
-    const { refreshData } = props
+    const { isAdmin, refreshData } = props
 
     const [product, setProduct] = useState(props.product || defaultProduct)
     const [isNew, setNew] = useState(props.isNew || false)
@@ -26,13 +26,13 @@ export default (props) => {
         setEdit(false)
         setNew(false)
         axios.post('/api/products/', product)
-            .then(response => {
+            .then(() => {
                 refreshData()
             })
             .catch(error => {
                 alert('Failed to add new data');
                 refreshData()
-            })        
+            })
     }
 
     const handleUpdate = () => {
@@ -89,19 +89,20 @@ export default (props) => {
                         </Col>
                     }
                     <Col md={3}>
-                        {!isEdit
-                            ? <ButtonGroup>
-                                <Button variant='primary' onClick={() => setEdit(true)}>Edit</Button>
-                                <Button variant='danger' onClick={handleDelete}>Delete</Button>
-                            </ButtonGroup>
-                            : <ButtonGroup>
-                                {isNew
-                                    ? <Button variant='success' onClick={handleAdd}>Save</Button>
-                                    : <Button variant='primary' onClick={handleUpdate}>Update</Button>
-                                }
-                                <Button variant='danger' onClick={handleCancel}>Cancel</Button>
-                            </ButtonGroup>
-                        }
+                        {isAdmin && (
+                            !isEdit
+                                ? <ButtonGroup>
+                                    <Button variant='primary' onClick={() => setEdit(true)}>Edit</Button>
+                                    <Button variant='danger' onClick={handleDelete}>Delete</Button>
+                                </ButtonGroup>
+                                : <ButtonGroup>
+                                    {isNew
+                                        ? <Button variant='success' onClick={handleAdd}>Save</Button>
+                                        : <Button variant='primary' onClick={handleUpdate}>Update</Button>
+                                    }
+                                    <Button variant='danger' onClick={handleCancel}>Cancel</Button>
+                                </ButtonGroup>
+                        )}
                     </Col>
                 </Row>
             </Card>
